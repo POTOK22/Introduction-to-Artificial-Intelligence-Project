@@ -21,6 +21,7 @@ There are several different ways to achieve the same goal and the choice depends
 
 ### First approach
 The first approach considered was a Random Forest model, widely regarded as one of the best and most popular machine learning algorithms due to its high precision and accuracy as well as its rboustness to typical medical datasheet issues, such as small sample sizes and correlated features. Moreover, Random Forest offers further benefits including resistance to overfitting and build-in feature importnce metrics, which allow identification of the health parameters most strongly correlated with the likelihood of developing a heart disease.
+
 The Random Forest works in such way - it creates many indepedent decision trees and every one of them is trained with the randomly selected subsample of data. Then the so-called feature randomness comes to work - with every tree node division all features are taken randomly so the trees are less corealted with each other. When it comes to classification every tree "votes" so the final decision is a majority voting result. This approach of course has some drawback for example it can consume large amounts of RAM and the training process might be a little bit slower when it comes to large models but still this model is considered as one of the best espeically for this problem.  
 
 ### Second approach
