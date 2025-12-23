@@ -22,19 +22,36 @@ There are several different ways to achieve the same goal and the choice depends
 ### First approach
 The first approach considered was a Random Forest model, widely regarded as one of the best and most popular machine learning algorithms due to its high precision and accuracy as well as its rboustness to typical medical datasheet issues, such as small sample sizes and correlated features. Moreover, Random Forest offers further benefits including resistance to overfitting and build-in feature importnce metrics, which allow identification of the health parameters most strongly correlated with the likelihood of developing a heart disease.
 
-The Random Forest works in such way - it creates many indepedent decision trees and every one of them is trained with the randomly selected subsample of data. Then the so-called feature randomness comes to work - with every tree node division all features are taken randomly so the trees are less corealted with each other. When it comes to classification every tree "votes" so the final decision is a majority voting result. This approach of course has some drawback for example it can consume large amounts of RAM and the training process might be a little bit slower when it comes to large models but still this model is considered as one of the best espeically for this problem.  
+The Random Forest operates by constructing numerous indepedent decision trees and each one of them is trained on randomly selected subsample of data. The so-called feature randomness is also introduced - at each tree node split only a random subset of features is considered so the correlation between trees is reduced improving overall diversity. For classification tasks each tree "votes" so the final prediction is determined by majority voting result.
+
+Despite all of these strengths this approach of course has some drawback - for example it can consume significant amounts of RAM and the training time might require longer time for large models. Nevertheless, Random Forest remains one of the top choices for this problem.  
 
 ### Second approach
+The second approach considered was a Gaussian Naive Bayes (GaussianNB) model - a popular variant of the Naive Bayes classifier. This algorithm assumes that all features are indepedent of one another - a condition known as conditional independence which is rarely fully satified in real-world datasets. Despite this unrealistic assumption, this model frequently performs good enough and serves as a popular baseline i.e. a simple, interpretable reference point for initial evaluations and comparisions in futher analysis.
+
+GaussianNB offers several significant adventages, including very fast training and prediciton times, the ability to work effectively with small sample dataset sizes and high stability with strong resistance to overfitting. However, these benefits comes at a cost - it generaly achieves poor accuracy and precision in comparision to more sophisticated models mainly due to the oversimplyfying assumptions that features are uncorrelated.
 
 ### Third approach
+The final approach considered was the GradientBoostingClassifier (also known as Gradient Boosting Machine, or GBM) a highly powerful algorithm built on the principle of sequential ensemble learning. In this method each new decision tree is trained to correct the errors made by the previous ones. GBM performs exceptionally well on small to medium-sized datasheets and in this project achieved results were almost as good as those of Random Forest.
+
+The key difference from Random Forest lies in the tree structure, while Random Forest builds independent trees in parallel Gradient Boosting is focused on dependecy between trees sequentially reducing residual errors. Among its strongest advantages there are very high accuracy and precision, built-in feature importance metrics (similar to Random Forest) and superior handling of complex interactions and nonlinear relationships in the data.
+
+However there are also noticable weakneasses like vulnerability for overfitting as well as lower stability across different runs and even longer training times than those required by Random forest and its very high sensivity for hyperparameters settings.  
 
 ## Description of the Chosen Concept
+The selected concept was straightforward to choose as Random Forest clearly outperformed other models. In further analysis this method was optimized in order to achieve the best possible outcome while also focusing on interpretation of predictions and feature importance.
 
 ### Required data
+The dataset used for training and testing the models was a popular, publicly available heart disease dataset from [Kaggle](https://www.kaggle.com/datasets/johnsmith88/heart-disease-dataset "Kaggle Link"), stored in CSV format. It contains key health parameters from various patients along with a target column indicating the presence or absence of heart disease, enabling supervised learning.
+One of the dataset's major advantages is its high quality and readiness for use: no preprocessing was required, as all features were already encoded as numerical values (e.g., chest pain type represented on a scale from 0 to 3, rather than categorical labels). This clean, well-prepared structure allowed direct application of the models without additional data cleaning or feature engineering.
 
 ### Algorithm's output
+In the first part of the project all algoritms were compared based on their performance metrics in predicting heart disease. The key evaluation metric - the score - included accuracy, precision and recall in order to allow a direct assessment of each model's predictive capability.
+
+The second part focused primarily on optimizing the Random Forest model. As a result there were generated a correlation heatmap to visualize relationships between the individual features and the feature importance scores were extracted to indentify which health parameters had the strongest influence on the probability of developing heart disease. 
 
 ### Applied method
+Method applied to achieve the best possible performance were the hyperparameters tuning.
 
 ### Real world implementation
 
