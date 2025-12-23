@@ -42,7 +42,7 @@ However there are also noticable weakneasses like vulnerability for overfitting 
 The selected concept was straightforward to choose as Random Forest clearly outperformed other models. In further analysis this method was optimized in order to achieve the best possible outcome while also focusing on interpretation of predictions and feature importance.
 
 ### Required data
-The dataset used for training and testing the models was a popular, publicly available heart disease dataset from [Kaggle](https://www.kaggle.com/datasets/johnsmith88/heart-disease-dataset "Kaggle Link"), stored in CSV format. It contains key health parameters from various patients along with a target column indicating the presence or absence of heart disease, enabling supervised learning.
+The dataset used for training and testing the models was a popular, publicly available heart disease dataset from [Kaggle](https://www.kaggle.com/datasets/johnsmith88/heart-disease-dataset "Kaggle dataset link"), stored in CSV format. It contains key health parameters from various patients along with a target column indicating the presence or absence of heart disease, enabling supervised learning.
 One of the dataset's major advantages is its high quality and readiness for use: no preprocessing was required, as all features were already encoded as numerical values (e.g., chest pain type represented on a scale from 0 to 3, rather than categorical labels). This clean, well-prepared structure allowed direct application of the models without additional data cleaning or feature engineering.
 
 ### Algorithm's output
@@ -51,10 +51,14 @@ In the first part of the project all algoritms were compared based on their perf
 The second part focused primarily on optimizing the Random Forest model. As a result there were generated a correlation heatmap to visualize relationships between the individual features and the feature importance scores were extracted to indentify which health parameters had the strongest influence on the probability of developing heart disease. 
 
 ### Applied method
-Method applied to achieve the best possible performance were the hyperparameters tuning.
+Method applied to achieve the best possible performance were the hyperparameters tuning - specifically Grid Search. This exhaustive method systematically tests all possible combinations of hyperparameters from a predefined grid, ensuring the identification of the optimal configuration that gets highest model performance.
+
+Although Grid Search can be time-consuming for larger datasets or more extensive grids this is not a significant issue in this project because the given datasets are relatively small in size.
 
 ### Real world implementation
+This type of machine learning project has strong potential for real-world applications, as cardiovascular diseases remain one of the leading causes of death worldwide. Although this project represents only a small step of what a significant benefits the machine learning can bring to healthcare. In future such models could become powerful tools for predicting and preventing the development of heart disease.
 
 ### Testing procedure
+Model evaluation in this project was conducted multiple times by using various techniques to ensure robust and reliable results. Each algorithm was assessed based on standard classification metrics such as accuracy, precission and recall which measure overall predictive performance.
 
-## Summary
+Additionally, the Receiver Operating Characteristic (ROC) curve was plotted for the models, along with the corresponding Area Under the Curve (AUC) score. The ROC curve illustrates the trade-off between true positive rate and false positive rate across different classification thresholds, providing a comprehensive view of the model's ability to distinguish between positive and negative classes. A higher AUC value (closer to 1) indicates superior discriminative performance, with Random Forest achieving the best results in this regard.
